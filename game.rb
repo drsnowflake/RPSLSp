@@ -72,7 +72,9 @@ end
 
 # show the throws
 puts
-puts "You threw #{numToText[playerThrow-1]}, computer threw #{numToText[computerThrow-1]}"
+print "You threw #{numToText[playerThrow-1]}, computer threw... "
+sleep (1) if buildTensionMode
+puts numToText[computerThrow-1]
 sleep (1) if buildTensionMode
 
 
