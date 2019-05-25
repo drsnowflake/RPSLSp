@@ -1,5 +1,5 @@
-# toggle sleep/pauses on(0) or off(1)
-fastmode = 0
+# toggle sleep/pauses on(true) or off(false)
+buildTensionMode = true
 
 
 # welcome and setup
@@ -56,7 +56,7 @@ end
 
 # build the tension
 counter = 3
-if fastmode == 0
+if buildTensionMode
   loop do
     system "clear" or system "cls"
     puts "Throwing in"
@@ -73,7 +73,7 @@ end
 # show the throws
 puts
 puts "You threw #{numToText[playerThrow-1]}, computer threw #{numToText[computerThrow-1]}"
-sleep (1) if fastmode == 0
+sleep (1) if buildTensionMode
 
 
 # results of match
@@ -90,7 +90,7 @@ elsif (playerThrow == 3 && computerThrow == 2) || (playerThrow == 2 && computerT
   victoryConditions(winner)
   playerWins += 1
   puts
-  sleep (1) if fastmode == 0
+  sleep (1) if buildTensionMode
   puts "You win! :D"
 else
   winner = computerThrow.to_s + playerThrow.to_s
@@ -98,13 +98,13 @@ else
   victoryConditions(winner)
   computerWins += 1
   puts
-  sleep (1) if fastmode == 0
+  sleep (1) if buildTensionMode
   puts "Computer wins :("
 end
 
 
 # repeat round // break
-sleep (1) if fastmode == 0
+sleep (1) if buildTensionMode
 puts
 puts "Another round? (y/n)"
 playAgain = gets.chomp.downcase
@@ -116,7 +116,7 @@ while !(playAgain == 'y' || playAgain == 'n') do
 end
 
 if playAgain == 'y'
-  system "clear" or system "cls" if fastmode == 0
+  system "clear" or system "cls" if buildTensionMode
 end
 
 break if playAgain == 'n'
