@@ -1,9 +1,12 @@
+# welcome and setup
 puts "Hi, welcome to RPSLSp"
 
 numToText = %w{Rock Paper Scissors Lizard Spock}
 playerWins = 0
 computerWins = 0
 
+
+# game start loop
 loop do
 
 computerThrow = rand(1..5)
@@ -11,13 +14,16 @@ puts
 puts "Choose your weapon - Rock (1), Paper (2), Scissors (3), Lizard (4), Spock (5): "
 playerThrow = gets.to_i
 
-# loop for valid input
+
+# check for valid input
 while !playerThrow.between?(1,5) do
   puts
   puts "Something doesn't seem quite right, please check the choices and try again."
   playerThrow = gets.to_i
 end
 
+
+# victory text lines
 def victoryConditions(result)
   case result
   when '32'
@@ -43,10 +49,29 @@ def victoryConditions(result)
   end
 end
 
+
+# build the tension
+counter = 3
+
+loop do
+  system "clear" or system "cls"
+  puts "Throwing in"
+  puts counter
+  sleep (1)
+  counter -= 1
+  if counter == 0
+    break
+  end
+end
+
+
+# show the throws
 puts
 puts "You threw #{numToText[playerThrow-1]}, computer threw #{numToText[computerThrow-1]}"
+sleep (1)
 
-# victory conditions
+
+# results of match
 if playerThrow == computerThrow
   puts
   puts "Both players threw #{numToText[playerThrow-1]}. It's a draw!"
@@ -71,7 +96,9 @@ else
   puts "Computer wins :("
 end
 
+
 # repeat round // break
+sleep (1)
 puts
 puts "Another round? (y/n)"
 playAgain = gets.chomp.downcase
@@ -89,6 +116,7 @@ end
 break if playAgain == 'n'
 
 end
+
 
 # exit messages
 puts
