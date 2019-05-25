@@ -1,4 +1,4 @@
-# toggle sleep/pauses on(true) or off(false)
+# enable (true) or disable (false) tension building features
 buildTensionMode = true
 
 
