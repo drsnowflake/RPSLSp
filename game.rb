@@ -1,12 +1,14 @@
 # toggle sleep/pauses on(0) or off(1)
 fastmode = 0
 
+
 # welcome and setup
 puts "Hi, welcome to RPSLSp"
 
 numToText = %w{Rock Paper Scissors Lizard Spock}
 playerWins = 0
 computerWins = 0
+
 
 # game start loop
 loop do
@@ -17,7 +19,7 @@ puts "Choose your weapon - Rock (1), Paper (2), Scissors (3), Lizard (4), Spock 
 playerThrow = gets.to_i
 
 
-# check for valid input
+# check for valid player input
 while !playerThrow.between?(1,5) do
   puts
   puts "Something doesn't seem quite right, please check the choices and try again."
@@ -66,6 +68,7 @@ if fastmode == 0
     end
   end
 end
+
 
 # show the throws
 puts
