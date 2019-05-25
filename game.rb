@@ -1,5 +1,4 @@
 puts "Hi, welcome to RPSLSp"
-puts 
 
 numToText = %w{Rock Paper Scissors Lizard Spock}
 playerWins = 0
@@ -8,11 +7,13 @@ computerWins = 0
 loop do
 
 computerThrow = rand(1..5)
+puts
 puts "Choose your weapon - Rock (1), Paper (2), Scissors (3), Lizard (4), Spock (5): "
 playerThrow = gets.to_i
 
 # loop for valid input
 while !playerThrow.between?(1,5) do
+  puts
  	puts "Something doesn't seem quite right, please check the choices and try again."
  	playerThrow = gets.to_i
 end
@@ -48,7 +49,6 @@ puts "You threw #{numToText[playerThrow-1]}, computer threw #{numToText[computer
 # victory conditions
 if playerThrow == computerThrow
 	puts "Both players threw #{numToText[playerThrow-1]}. It's a draw!"
-
 elsif (playerThrow == 3 && computerThrow == 2) || (playerThrow == 2 && computerThrow == 1) || 
 	(playerThrow == 1 && computerThrow == 4) || (playerThrow == 4 && computerThrow == 5) || 
 	(playerThrow == 5 && computerThrow == 3) || (playerThrow == 3 && computerThrow == 4) || 
@@ -57,19 +57,16 @@ elsif (playerThrow == 3 && computerThrow == 2) || (playerThrow == 2 && computerT
 	
 	winner = playerThrow.to_s + computerThrow.to_s
 	victoryConditions(winner)
-	puts
 	playerWins += 1
+  puts
 	puts "You win! :D"
-
 else
 	winner = computerThrow.to_s + playerThrow.to_s
 	victoryConditions(winner)
-	puts
 	computerWins += 1
+  puts
 	puts "Computer wins :("
-
 end
-
 
 # repeat round // break
 puts
@@ -77,6 +74,7 @@ puts "Another round? (y/n)"
 playAgain = gets.chomp.downcase
 
 while !(playAgain == 'y' || playAgain == 'n') do
+  puts
  	puts "hmm, did you want to play again? (y/n)"
  	playAgain = gets.chomp.downcase
 end
@@ -85,15 +83,13 @@ if playAgain == 'y'
 	system "clear" or system "cls"
 end
 
-puts
-
-
 break if playAgain == 'n'
 
 end
 
+puts
 puts "Congratulations! You beat the computer #{playerWins} rounds to #{computerWins}" if playerWins > computerWins
 puts "The computer beat you #{computerWins} rounds to #{playerWins}. Better luck next time! " if computerWins > playerWins
-puts "WOW! A draw in games! Both you and the computer won #{playerWins} rounds"	 if playerWins == computerWins
+puts "WOW! A draw in games! Both you and the computer won #{playerWins} rounds" if playerWins == computerWins
 puts
 puts "Thanks for playing!"
