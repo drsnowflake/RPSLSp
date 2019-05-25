@@ -1,10 +1,12 @@
+# toggle sleep/pauses on(0) or off(1)
+fastmode = 0
+
 # welcome and setup
 puts "Hi, welcome to RPSLSp"
 
 numToText = %w{Rock Paper Scissors Lizard Spock}
 playerWins = 0
 computerWins = 0
-
 
 # game start loop
 loop do
@@ -52,23 +54,23 @@ end
 
 # build the tension
 counter = 3
-
-loop do
-  system "clear" or system "cls"
-  puts "Throwing in"
-  puts counter
-  sleep (1)
-  counter -= 1
-  if counter == 0
-    break
+if fastmode == 0
+  loop do
+    system "clear" or system "cls"
+    puts "Throwing in"
+    puts counter
+    sleep (1)
+    counter -= 1
+    if counter == 0
+      break
+    end
   end
 end
-
 
 # show the throws
 puts
 puts "You threw #{numToText[playerThrow-1]}, computer threw #{numToText[computerThrow-1]}"
-sleep (1)
+sleep (1) if fastmode == 0
 
 
 # results of match
@@ -86,19 +88,20 @@ elsif (playerThrow == 3 && computerThrow == 2) || (playerThrow == 2 && computerT
   victoryConditions(winner)
   playerWins += 1
   puts
+  sleep (1) if fastmode == 0
   puts "You win! :D"
 else
   winner = computerThrow.to_s + playerThrow.to_s
-  puts
   victoryConditions(winner)
-  puts
   computerWins += 1
+  puts
+  sleep (1) if fastmode == 0
   puts "Computer wins :("
 end
 
 
 # repeat round // break
-sleep (1)
+sleep (1) if fastmode == 0
 puts
 puts "Another round? (y/n)"
 playAgain = gets.chomp.downcase
