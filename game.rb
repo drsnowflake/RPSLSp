@@ -85,7 +85,6 @@ elsif (playerThrow == 3 && computerThrow == 2) || (playerThrow == 2 && computerT
 	(playerThrow == 5 && computerThrow == 3) || (playerThrow == 3 && computerThrow == 4) || 
 	(playerThrow == 4 && computerThrow == 2) || (playerThrow == 2 && computerThrow == 5) || 
 	(playerThrow == 5 && computerThrow == 1) || (playerThrow == 1 && computerThrow == 3)
-
   winner = playerThrow.to_s + computerThrow.to_s
   puts
   victoryConditions(winner)
