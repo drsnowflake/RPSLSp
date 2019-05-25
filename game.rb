@@ -94,6 +94,7 @@ elsif (playerThrow == 3 && computerThrow == 2) || (playerThrow == 2 && computerT
   puts "You win! :D"
 else
   winner = computerThrow.to_s + playerThrow.to_s
+  puts
   victoryConditions(winner)
   computerWins += 1
   puts
@@ -115,7 +116,7 @@ while !(playAgain == 'y' || playAgain == 'n') do
 end
 
 if playAgain == 'y'
-  system "clear" or system "cls"
+  system "clear" or system "cls" if fastmode == 0
 end
 
 break if playAgain == 'n'
