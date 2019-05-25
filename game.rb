@@ -14,8 +14,8 @@ playerThrow = gets.to_i
 # loop for valid input
 while !playerThrow.between?(1,5) do
   puts
- 	puts "Something doesn't seem quite right, please check the choices and try again."
- 	playerThrow = gets.to_i
+  puts "Something doesn't seem quite right, please check the choices and try again."
+  playerThrow = gets.to_i
 end
 
 def victoryConditions(result)
@@ -49,26 +49,26 @@ puts "You threw #{numToText[playerThrow-1]}, computer threw #{numToText[computer
 # victory conditions
 if playerThrow == computerThrow
   puts
-	puts "Both players threw #{numToText[playerThrow-1]}. It's a draw!"
+  puts "Both players threw #{numToText[playerThrow-1]}. It's a draw!"
 elsif (playerThrow == 3 && computerThrow == 2) || (playerThrow == 2 && computerThrow == 1) || 
 	(playerThrow == 1 && computerThrow == 4) || (playerThrow == 4 && computerThrow == 5) || 
 	(playerThrow == 5 && computerThrow == 3) || (playerThrow == 3 && computerThrow == 4) || 
 	(playerThrow == 4 && computerThrow == 2) || (playerThrow == 2 && computerThrow == 5) || 
 	(playerThrow == 5 && computerThrow == 1) || (playerThrow == 1 && computerThrow == 3)
-	
-	winner = playerThrow.to_s + computerThrow.to_s
-	puts
-  victoryConditions(winner)
-	playerWins += 1
+
+  winner = playerThrow.to_s + computerThrow.to_s
   puts
-	puts "You win! :D"
+  victoryConditions(winner)
+  playerWins += 1
+  puts
+  puts "You win! :D"
 else
-	winner = computerThrow.to_s + playerThrow.to_s
-	puts
+  winner = computerThrow.to_s + playerThrow.to_s
+  puts
   victoryConditions(winner)
   puts
   computerWins += 1
-	puts "Computer wins :("
+  puts "Computer wins :("
 end
 
 # repeat round // break
@@ -78,21 +78,23 @@ playAgain = gets.chomp.downcase
 
 while !(playAgain == 'y' || playAgain == 'n') do
   puts
- 	puts "hmm, did you want to play again? (y/n)"
- 	playAgain = gets.chomp.downcase
+  puts "hmm, did you want to play again? (y/n)"
+  playAgain = gets.chomp.downcase
 end
 
 if playAgain == 'y'
-	system "clear" or system "cls"
+  system "clear" or system "cls"
 end
 
 break if playAgain == 'n'
 
 end
 
+# exit messages
 puts
 puts "Congratulations! You beat the computer #{playerWins} rounds to #{computerWins}" if playerWins > computerWins
 puts "The computer beat you #{computerWins} rounds to #{playerWins}. Better luck next time! " if computerWins > playerWins
 puts "WOW! A draw! Both you and the computer won #{playerWins} rounds" if playerWins == computerWins
 puts
-puts "Thanks for playing!"
+puts "Thanks for playing! Press return to exit"
+gets
