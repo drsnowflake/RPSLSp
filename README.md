@@ -4,4 +4,4 @@ Rock Paper Scissors Lizard Spock Ruby application for Arnold Clark Student Hack 
 
 ## Summary
 
-This program was created after ~3 hours of learning/coding experience in Ruby.
+This program was created after ~4 hours of learning/coding experience in Ruby.
