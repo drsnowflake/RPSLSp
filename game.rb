@@ -20,7 +20,7 @@ playerThrow = gets.to_i
 
 
 # check for valid player input
-while !playerThrow.between?(1,5) do
+until playerThrow.between?(1,5) do
   puts
   puts "Something doesn't seem quite right, please check the choices and try again."
   playerThrow = gets.to_i
@@ -111,7 +111,7 @@ puts
 puts "Another round? (y/n)"
 playAgain = gets.chomp.downcase
 
-while !(playAgain == 'y' || playAgain == 'n') do
+until (playAgain == 'y' || playAgain == 'n') do
   puts
   puts "hmm, did you want to play again? (y/n)"
   playAgain = gets.chomp.downcase
