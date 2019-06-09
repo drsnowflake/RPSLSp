@@ -31,7 +31,7 @@ loop do
   player_throw = gets.to_i
 
   # check for valid player input
-  until player_throw.between?(1,5) do
+  until player_throw.between?(1, 5)
     puts
     puts 'Something doesn\'t seem quite right, please check the choices and try again.'
     player_throw = gets.to_i
