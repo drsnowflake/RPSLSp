@@ -10,30 +10,18 @@ player_wins = 0
 computer_wins = 0
 
 # victory text lines
-def victory_conditions(result)
-  case result
-  when '32'
-    puts 'Scissors cuts Paper!'
-  when '21'
-    puts 'Paper covers Rock!'
-  when '14'
-    puts 'Rock crushes Lizard!'
-  when '45'
-    puts 'Lizard poisons Spock!'
-  when '53'
-    puts 'Spock smashes Scissors!'
-  when '34'
-    puts 'Scissors decapitates Lizard!'
-  when '42'
-    puts 'Lizard eats Paper!'
-  when '25'
-    puts 'Paper disproves Spock!'
-  when '51'
-    puts 'Spock vaporizes Rock!'
-  when '13'
-    puts 'Rock crushes Scissors!'
-  end
-end
+victory_conditions = {
+  '32' => 'Scissors cuts Paper!',
+  '21' => 'Paper covers Rock!',
+  '14' => 'Rock crushes Lizard!',
+  '45' => 'Lizard poisons Spock!',
+  '53' => 'Spock smashes Scissors!',
+  '34' => 'Scissors decapitates Lizard!',
+  '42' => 'Lizard eats Paper!',
+  '25' => 'Paper disproves Spock!',
+  '51' => 'Spock vaporizes Rock!',
+  '13' => 'Rock crushes Scissors!'
+}
 
 # game start loop
 loop do
@@ -85,7 +73,7 @@ loop do
         (player_throw == 1 && computer_throw == 3)
     winner = player_throw.to_s + computer_throw.to_s
     puts
-    victory_conditions(winner)
+    puts victory_conditions.fetch(winner)
     player_wins += 1
     puts
     sleep(1) if build_tension_mode
@@ -93,7 +81,7 @@ loop do
   else
     winner = computer_throw.to_s + player_throw.to_s
     puts
-    victory_conditions(winner)
+    puts victory_conditions.fetch(winner)
     computer_wins += 1
     puts
     sleep(1) if build_tension_mode
